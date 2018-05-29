@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context=".CadastroActivity">
+
+    <ImageView
+        android:layout_width="394dp"
+        android:layout_height="111dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/todo"
+        android:src="@drawable/logosemslogan" />
+
+    <TextView
+        android:id="@+id/textViewEntre"
+        android:layout_marginTop="10dp"
+        android:text="@string/entre_com_os_seus_dados"
+        android:textColor="@color/branco"
+        android:layout_gravity="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <EditText
+        android:id="@+id/EditTextNome"
+        android:layout_width="272dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/edittext_arredondado"
+        android:gravity="center"
+        android:hint="@string/nome"
+        android:inputType="textCapWords" />
+
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="272dp"
+        android:layout_height="44dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/edittext_arredondado"
+        android:gravity="center"
+        android:hint="@string/digite_seu_e_mail"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginStart="65dp" />
+
+    <EditText
+        android:id="@+id/editTextDataDeNascimento"
+        android:layout_width="272dp"
+        android:layout_height="44dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edittext_arredondado"
+        android:gravity="center"
+        android:hint="@string/data_de_nascimento"
+        android:inputType="date"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="25dp" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextSenha"
+            android:layout_width="177dp"
+            android:layout_height="44dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/edittext_arredondado"
+            android:gravity="center"
+            android:hint="@string/digite_sua_senha"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/editTextConfirmaSenha"
+            android:layout_width="177dp"
+            android:layout_height="44dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/edittext_arredondado"
+            android:gravity="center"
+            android:hint="@string/confirme_sua_senha"
+            android:inputType="textPassword" />
+
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/buttonCadastrar"
+        android:layout_width="216dp"
+        android:layout_height="62dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_arredondado"
+        android:text="@string/cadastrar"
+        android:textColor="@color/branco"
+        android:textSize="18sp" />
+
+</LinearLayout>

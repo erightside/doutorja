@@ -1,0 +1,107 @@
+package com.rightside.doutorja.adapter;
+
+import android.content.Context;
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+
+import com.rightside.doutorja.EspecialistaEscolhidoActivity;
+import com.rightside.doutorja.R;
+import com.rightside.doutorja.modelo.Especialista;
+
+import java.util.ArrayList;
+
+
+public class EspecialistaAdapter extends RecyclerView.Adapter<EspecialistaAdapter.MyViewHolder> {
+
+    private Context context;
+
+    private ArrayList<Especialista> listaDeEspecialista;
+
+    public EspecialistaAdapter(Context context, ArrayList<Especialista> listaDeEspecialista) {
+
+        this.context = context;
+        this.listaDeEspecialista = listaDeEspecialista;
+    }
+
+    @NonNull
+    @Override
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view;
+
+        LayoutInflater inflater = LayoutInflater.from(context);
+        view = inflater.inflate(R.layout.cardview_item_especialista,parent,false);
+
+        return new MyViewHolder(view);
+
+    }
+
+
+    @Override
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+
+        holder.imagem_especialista.setImageResource(listaDeEspecialista.get(position).getImagemPerfil());
+
+        holder.endereco_especialista.setText(listaDeEspecialista.get(position).getEnderecoEspecialista());
+
+        holder.nome_especialista.setText(listaDeEspecialista.get(position).getNome());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intencao = new Intent(context, EspecialistaEscolhidoActivity.class);
+
+                intencao.putExtra("Nome",listaDeEspecialista.get(position).getNome());
+                intencao.putExtra("Endereço",listaDeEspecialista.get(position).getEnderecoEspecialista());
+                intencao.putExtra("Registro",listaDeEspecialista.get(position).getRegistroProfissional());
+                intencao.putExtra("Imagem",listaDeEspecialista.get(position).getImagemPerfil());
+                intencao.putExtra("Ano de Formação",listaDeEspecialista.get(position).getAnoDeFormacao());
+                intencao.putExtra("Telefone",listaDeEspecialista.get(position).getTelefone());
+                intencao.putExtra("Valor",listaDeEspecialista.get(position).getValorDoAtendimento());
+
+                context.startActivity(intencao);
+            }
+        });
+
+    }
+
+
+    @Override
+    public int getItemCount() {
+        return listaDeEspecialista.size();
+    }
+
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
+
+
+        TextView nome_especialista;
+        TextView endereco_especialista;
+        ImageView imagem_especialista;
+        CardView cardView_especialista;
+
+
+
+
+
+        public MyViewHolder(View itemView){
+
+            super(itemView);
+
+            nome_especialista = (TextView) itemView.findViewById(R.id.medico_nome_id);
+            endereco_especialista = (TextView) itemView.findViewById(R.id.medico_endereco_id);
+            imagem_especialista = (ImageView) itemView.findViewById(R.id.medico_imagem_id);
+            cardView_especialista = (CardView) itemView.findViewById(R.id.cardview_especialista_id);
+
+        }
+
+
+    }
+}
